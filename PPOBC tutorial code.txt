@@ -6,8 +6,8 @@ var sprite_bbox_right = sprite_get_bbox_right(sprite_index)-sprite_get_xoffset(s
 //Horizontal
 x += hspd;
 	
-if place_meeting(x+hspd,y,oWall) {
-	var wall = instance_place(x+hspd,y,oWall);
+if place_meeting(x,y,oWall) {
+	var wall = instance_place(x,y,oWall);
 	if hspd > 0 {//right
 		x = wall.bbox_left-sprite_bbox_right-1;
 	} else {//left
@@ -19,8 +19,8 @@ if place_meeting(x+hspd,y,oWall) {
 //Vertical
 y += vspd;
 	
-if place_meeting(x,y+vspd,oWall) {
-	var wall = instance_place(x,y+vspd,oWall);
+if place_meeting(x,y,oWall) {
+	var wall = instance_place(x,y,oWall);
 	if vspd > 0 {//down
 		y = wall.bbox_top-sprite_bbox_bottom-1;
 	} else {//up
