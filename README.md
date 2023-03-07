@@ -11,4 +11,4 @@ This is the pixel-perfect object-based collision tutorial code for GameMaker (as
 - Open "collision_real.txt"
 - In your project, create a script (name it whatever you want), delete all code (including "function"), and copy/paste the code into the script
 
-- Done!
+Done!
