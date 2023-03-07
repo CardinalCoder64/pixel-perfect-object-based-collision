@@ -1,0 +1,25 @@
+///@arg obj
+
+/*
+	- Checks for a collision with given object without the 
+	added tolerance value applied to GM's "place_meeting"
+	- Returns true if collision with given object
+*/
+
+function collision_real(argument0) {
+	var obj = argument0;
+	var collision_detected = false;
+	
+	for(var i=0;i<instance_number(obj);i++) {
+		var obj_id = instance_find(obj,i);
+		
+		if bbox_top < obj_id.bbox_bottom 
+		&& bbox_left < obj_id.bbox_right
+		&& bbox_bottom > obj_id.bbox_top 
+		&& bbox_right > obj_id.bbox_left {
+			collision_detected = true;
+		}
+	}
+	
+	return collision_detected;
+}
