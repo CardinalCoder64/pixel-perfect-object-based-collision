@@ -5,8 +5,8 @@ var sprite_bbox_right = sprite_get_bbox_right(sprite_index)-sprite_get_xoffset(s
 	
 //Horizontal
 x += hspd;
-	
-var wall_x = instance_place(x+hspd,y,oWall);
+
+var wall_x = collision_real_id(oWall);//See main branch for "collision_real_id" function
 if wall_x != noone {
 	if hspd > 0 {//right
 		x = wall_x.bbox_left-sprite_bbox_right-1;
@@ -18,8 +18,8 @@ if wall_x != noone {
 	
 //Vertical
 y += vspd;
-	
-var wall_y = instance_place(x,y+vspd,oWall);
+
+var wall_y = collision_real_id(oWall);//See main branch for "collision_real_id" function
 if wall_y != noone {
 	if vspd > 0 {//down
 		y = wall_y.bbox_top-sprite_bbox_bottom-1;
