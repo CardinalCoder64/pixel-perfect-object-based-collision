@@ -3,6 +3,10 @@ var sprite_bbox_bottom = sprite_get_bbox_bottom(sprite_index)-sprite_get_yoffset
 var sprite_bbox_left = sprite_get_bbox_left(sprite_index)-sprite_get_xoffset(sprite_index);
 var sprite_bbox_right = sprite_get_bbox_right(sprite_index)-sprite_get_xoffset(sprite_index)+1;
 
+//Snap coordinates
+snap_x = 0;
+snap_y = 0;
+
 //Horizontal
 var wall_x = collision_real_id(hspd,0,oWall);
 if wall_x != noone {
