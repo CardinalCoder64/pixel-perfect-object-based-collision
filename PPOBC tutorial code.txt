@@ -8,29 +8,33 @@ snap_x = 0;
 snap_y = 0;
 
 //Horizontal
-var wall_x = collision_real_id(hspd,0,oWall);
-if wall_x != noone {
-	var wall_left = wall_x.bbox_left;
-	var wall_right = wall_x.bbox_right;
-	if x < wall_left {//right
-		snap_x = wall_left-sprite_bbox_right;
-	} else if x > wall_right {//left
-		snap_x = wall_right-sprite_bbox_left;
+for(var h=0;h<=ceil(abs(hspd));h++) {
+	var wall_x = collision_real_id(h*sign(hspd),0,oWall);
+	if wall_x != noone {
+		var wall_left = wall_x.bbox_left;
+		var wall_right = wall_x.bbox_right;
+		if x < wall_left {//right
+			snap_x = wall_left-sprite_bbox_right;
+		} else if x > wall_right {//left
+			snap_x = wall_right-sprite_bbox_left;
+		}
+		hspd = 0;
 	}
-	hspd = 0;
 }
 
 //Vertical
-var wall_y = collision_real_id(0,vspd,oWall);
-if wall_y != noone {
-	var wall_top = wall_y.bbox_top;
-	var wall_bottom = wall_y.bbox_bottom;
-	if y < wall_top {//down
-		snap_y = wall_top-sprite_bbox_bottom;
-	} else if y > wall_bottom {//up
-		snap_y = wall_bottom-sprite_bbox_top;
+for(var v=0;v<=ceil(abs(vspd));v++) {
+	var wall_y = collision_real_id(0,v*sign(vspd),oWall);
+	if wall_y != noone {
+		var wall_top = wall_y.bbox_top;
+		var wall_bottom = wall_y.bbox_bottom;
+		if y < wall_top {//down
+			snap_y = wall_top-sprite_bbox_bottom;
+		} else if y > wall_bottom {//up
+			snap_y = wall_bottom-sprite_bbox_top;
+		}
+		vspd = 0;
 	}
-	vspd = 0;
 }
 
 x += hspd;
